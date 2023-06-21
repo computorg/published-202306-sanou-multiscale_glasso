@@ -49,18 +49,20 @@ keywords: [Neighborhood selection, Convex hierarchical clustering, Gaussian grap
 citation:
   type: article-journal
   container-title: "Computo"
-  doi: "xxxx"
-  url: https://github.com/desanou/multiscale_glasso
+  doi: "10.57750/1f4p-7955"
+  url: https://computo.sfds.asso.fr/published-202306-sanou-multiscale_glasso
   publisher: "Société Française de Statistique"
   issn: "2824-7795"
 bibliography: references.bib
 github-user: desanou
 repo: "multiscale_glasso"
-draft: false # set to false once the build is running
-published: false # will be set to true once accepted
+draft: false
+published: true
 format:
   computo-html: default
   computo-pdf: default
+execute:
+  echo: false
 ---
 
 # Introduction 
