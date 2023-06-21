@@ -54,8 +54,8 @@ citation:
   publisher: "Société Française de Statistique"
   issn: "2824-7795"
 bibliography: references.bib
-github-user: desanou
-repo: "multiscale_glasso"
+github-user: computorg
+repo: "published-202306-sanou-multiscale_glasso"
 draft: false
 published: true
 format:
