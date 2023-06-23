@@ -1367,39 +1367,30 @@ can be computed after choosing a fusion threshold as in @fig-meta-graphs.
 #|   - Full graph with $\lambda_2$ = 3.26
 #|   - Full graph with $\lambda_2$ = 4.89
 #|   - Full graph with $\lambda_2$ = 30.94
+#| layout-ncol: 3
 
 # Plot adjacency matrices for some levels 
 # Selection based on network interpretability  
 #' symmetrize matrix of regression vectors pxp
 Matrix::image(
   adj_mat(mglasso_genot$`1`$selected_Theta[order_omics, order_omics]),
-  sub = "",
-  xlab = "",
-  ylab = ""
+  sub = "", xlab = "", ylab = ""
 )
 Matrix::image(
   adj_mat(mglasso_genot$`2`$selected_Theta[order_omics, order_omics]),
-  sub = "",
-  xlab = "",
-  ylab = ""
+  sub = "", xlab = "", ylab = ""
 )
 Matrix::image(
   adj_mat(mglasso_genot$`3`$selected_Theta[order_omics, order_omics]),
-  sub = "",
-  xlab = "",
-  ylab = ""
+  sub = "", xlab = "", ylab = ""
 )
 Matrix::image(
   adj_mat(mglasso_genot$`4`$selected_Theta[order_omics, order_omics]),
-  sub = "",
-  xlab = "",
-  ylab = ""
+  sub = "", xlab = "", ylab = ""
 )
 Matrix::image(
   adj_mat(mglasso_genot$`20`$selected_Theta[order_omics, order_omics]),
-  sub = "",
-  xlab = "",
-  ylab = ""
+  sub = "", xlab = "", ylab = ""
 )
 ```
 

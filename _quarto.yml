@@ -1,2 +1,6 @@
 project:
   title: "published-202306-sanou-mglasso"
+
+format:
+  computo-html:
+    code-fold: true
