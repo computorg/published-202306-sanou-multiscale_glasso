@@ -37,8 +37,12 @@ content.qmd
 *.tex
 *.aux
 _extensions/
-*.pdf
+published-202306-sanou-mglasso.pdf
+published-202306-sanou-mglasso.html
 includes/
 *.gitattributes
 *.Rproj
 .Rprofile
+
+
+/.luarc.json
