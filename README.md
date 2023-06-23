@@ -1,7 +1,18 @@
 
-# Multiscale Gaussian Graphical Models.  
+# Inference of Multiscale Gaussian Graphical Models
 
-<!-- [![build output](https://github.com/computorg/template-computo-Rmarkdown/workflows/build/badge.svg)](https://computorg.github.io/template-computo-Rmarkdown/)-->
-<!--[![Binder](https://binder.pangeo.io/badge_logo.svg)](https://mybinder.org/v2/gh/computorg/template-computo-Rmarkdown/main?urlpath=rstudio)-->
+by 
 
-[![build output](https://github.com/desanou/multiscale_glasso/actions/workflows/build.yml/badge.svg)](https://desanou.github.io/multiscale_glasso/)
+- Edmond Sanou (Université Paris-Saclay, CNRS, Univ Evry, Laboratoire de Mathématiques et Modélisation d'Evry)
+- Christophe Ambroise (Université Paris-Saclay, CNRS, Univ Evry, Laboratoire de Mathématiques et Modélisation d'Evry)
+- Geneviève Robin (Université Paris-Saclay, CNRS, Univ Evry, Laboratoire de Mathématiques et Modélisation d'Evry)
+
+[![build status](https://github.com/computorg/published-202306-sanou-multiscale_glasso/workflows/build/badge.svg)](https://github.com/computorg/published-202306-sanou-multiscale_glasso/)
+[![](https://img.shields.io/github/last-commit/computorg/published-202306-sanou-multiscale_glasso.svg)](https://github.com/computorg/published-202306-sanou-multiscale_glasso/commits/main)
+[![DOI:10.57750/1f4p-7955](https://img.shields.io/badge/DOI-10.57750/1f4p-7955.svg)](https://doi.org/10.57750/1f4p-7955)
+[![HTML](https://img.shields.io/badge/article-HTML-034E79)](https://computo.sfds.asso.fr/published-202306-sanou-multiscale_glasso/)
+[![PDF](https://img.shields.io/badge/article-PDF-034E79)](https://computo.sfds.asso.fr/published-202306-sanou-multiscale_glasso/published-202306-sanou-multiscale_glasso.pdf)
+[![review 1](https://img.shields.io/badge/review-report%201-blue)](https://github.com/computorg/published-202306-sanou-multiscale_glasso/issues/3)
+[![review 2](https://img.shields.io/badge/review-report%202-blue)](https://github.com/computorg/published-202306-sanou-multiscale_glasso/issues/4)
+[![review 3](https://img.shields.io/badge/review-report%203-blue)](https://github.com/computorg/published-202306-sanou-multiscale_glasso/issues/5)
+[![Creative Commons License](https://i.creativecommons.org/l/by/4.0/80x15.png)](http://creativecommons.org/licenses/by/4.0/)
