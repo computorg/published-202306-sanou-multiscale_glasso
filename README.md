@@ -13,6 +13,6 @@ by
 [![HTML](https://img.shields.io/badge/article-HTML-034E79)](https://computo.sfds.asso.fr/published-202306-sanou-multiscale_glasso/)
 [![PDF](https://img.shields.io/badge/article-PDF-034E79)](https://computo.sfds.asso.fr/published-202306-sanou-multiscale_glasso/published-202306-sanou-multiscale_glasso.pdf)
 [![review 1](https://img.shields.io/badge/review-report%201-blue)](https://github.com/computorg/published-202306-sanou-multiscale_glasso/issues/3)
-[![review 2](https://img.shields.io/badge/review-report%201-blue)](https://github.com/computorg/published-202306-sanou-multiscale_glasso/issues/4)
-[![review 3](https://img.shields.io/badge/review-report%201-blue)](https://github.com/computorg/published-202306-sanou-multiscale_glasso/issues/5)
+[![review 2](https://img.shields.io/badge/review-report%202-blue)](https://github.com/computorg/published-202306-sanou-multiscale_glasso/issues/4)
+[![review 3](https://img.shields.io/badge/review-report%202-blue)](https://github.com/computorg/published-202306-sanou-multiscale_glasso/issues/5)
 [![Creative Commons License](https://i.creativecommons.org/l/by/4.0/80x15.png)](http://creativecommons.org/licenses/by/4.0/)
