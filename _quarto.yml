@@ -1,4 +1,6 @@
 project:
-  title: "multiscale-glasso"
-filters:
-  - pseudocode
+  title: "published-202306-sanou-mglasso"
+
+format:
+  computo-html:
+    code-fold: true
