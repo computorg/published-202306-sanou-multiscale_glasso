@@ -1,5 +1,5 @@
 ---
-title: "Inference of Multiscale Gaussian Graphical Model"
+title: "Inference of Multiscale Gaussian Graphical Models"
 subtitle: ""
 author:
   - name: Edmond Sanou
@@ -61,6 +61,8 @@ published: true
 format:
   computo-html: default
   computo-pdf: default
+execute:
+  freeze: auto  # re-render only when source changes
 ---
 
 # Introduction 
@@ -656,8 +658,10 @@ would make it possible to control the level of correlation between the variables
 in each block to $\rho$. Introducing a more realistic scheme with
 $\alpha_{ll}=0.75$ allows only to have an approximate control.
 
-::: {#fig-model-sbm}
 ```{r echo = TRUE, message=FALSE, warning=FALSE}
+#| label: fig-model-sbm
+#| fig-cap: Adjacency matrix of a stochastic block model defined by $K=5$ classes with identical prior probabilities set to $\pi = 1/K$, inter-classes connection probability $\alpha_{kl}=0.01, k \neq l$, intra-classes connection probability $\alpha_{ll}=0.75$ and $p=40$ vertices.
+
 library(mglasso)
 set.seed(2020)
 sim_sbm <- sim_data(
@@ -677,12 +681,6 @@ Matrix::image(
 )   
 ```
 
-Adjacency matrix of a stochastic block model defined by $K=5$ classes with
-identical prior probabilities set to $\pi = 1/K$, inter-classes connection
-probability $\alpha_{kl}=0.01, k \neq l$, intra-classes connection probability
-$\alpha_{ll}=0.75$ and $p=40$ vertices.
-:::
-
 ### Erdös-Renyi Model
 
 The Erdös-Renyi model is a special case of the stochastic block model
@@ -690,18 +688,14 @@ where $\alpha_{kl} = \alpha_{ll} = \alpha$ is constant. We set the
 density $\alpha$ of the graph to $0.1$; see @fig-model-erdos for an
 example of the graph resulting from this model.
 
-::: {#fig-model-erdos}
-```{r echo = TRUE}
+```{r, echo = TRUE}
+#| label: fig-model-erdos
+#| fig-cap: Adjacency matrix of an Erdös-Renyi model with probability of connection $\alpha = 0.1$ and $p=40$ vertices.
 set.seed(2022)
 sim_erdos <- sim_data(p = 40, structure = "erdos", p_erdos = 0.1)
 gerdos <- adj_mat(sim_erdos$graph)
-Matrix::image(as(gerdos, "sparseMatrix"),
-      sub = "", xlab = "", ylab = "")
+Matrix::image(as(gerdos, "sparseMatrix"), sub = "", xlab = "", ylab = "")
 ```
-
-Adjacency matrix of an Erdös-Renyi model with probability of connection $\alpha
-= 0.1$ and $p=40$ vertices.
-:::
 
 ### Scale-free Model
 
@@ -712,17 +706,14 @@ is connected to an existing node with a probability proportional to the
 degree of the existing node. We set the number of edges in the graph to
 $40$. An example of scale-free graph is shown in @fig-model-sfree.
 
-::: {#fig-model-sfree}
-```{r echo = TRUE}
+```{r, echo = TRUE}
+#| label: fig-model-sfree
+#| fig-cap: Adjacency matrix of a Scale-free model with $40$ edges and $p=40$ nodes.
 set.seed(2022)
 sim_sfree <- sim_data(p = 40, structure = "scale_free")
 gsfree <- adj_mat(sim_sfree$graph)
-Matrix::image(as(gsfree, "sparseMatrix"),
-      sub = "", xlab = "", ylab = "")
+Matrix::image(as(gsfree, "sparseMatrix"), sub = "", xlab = "", ylab = "")
 ```
-
-Adjacency matrix of a Scale-free model with $40$ edges and $p=40$ nodes.
-:::
 
 ## Support recovery
 
@@ -744,8 +735,9 @@ their associated ROC curves, which are then averaged. The average ROC
 curves for the three models are given in @fig-roc-erdos, @fig-roc-sfree
 and @fig-roc-sbm by varying $\frac{n}{p}\in \{0.5,1,2\}$.
 
-::: {#fig-roc-erdos}
 ```{r roc_erdos, message=FALSE, echo = TRUE}
+#| label: fig-roc-erdos
+#| fig-cap: Mean ROC curves for MGLasso and GLasso graph inference in the Erdös-Renyi model. We varied the fusion penalty parameter of MGLasso $\lambda_2 \in \{0, 3.33, 10\}$ alongside the ratio $\frac{n}{p}\in \{0.5,1,2\}$. Within each panel, the ROC curve shows the True positive rate (y-axis) vs. the False positive rate (x-axis) for both MGLasso (blue) and GLasso (brown). Since GLasso does not have a fusion penalty, its ROC curves were replicated for panels belonging to the same row. We also plot the random classifier (dotted grey line). The results have been averaged over $50$ simulated datasets and suggest that MGLasso performs no worse than GLasso. For $\lambda_2 = 0$, the MGLasso approach is equivalent to GLasso in its neighborhood selection version.
 #| fig-width: 12
 #| fig-height: 7
 
@@ -783,20 +775,9 @@ ggplot(roc_dtf_erdos, aes(
   )
 ```
 
-Mean ROC curves for MGLasso and GLasso graph inference in the Erdös-Renyi model.
-We varied the fusion penalty parameter of MGLasso $\lambda_2 \in \{0, 3.33, 10\}$
-alongside the ratio $\frac{n}{p}\in \{0.5,1,2\}$. Within each panel, the ROC
-curve shows the True positive rate (y-axis) vs. the False positive rate (x-axis)
-for both MGLasso (blue) and GLasso (brown). Since GLasso does not have a fusion
-penalty, its ROC curves were replicated for panels belonging to the same row. We
-also plot the random classifier (dotted grey line). The results have been
-averaged over $50$ simulated datasets and suggest that MGLasso performs no worse
-than GLasso. For $\lambda_2 = 0$, the MGLasso approach is equivalent to GLasso
-in its neighborhood selection version.
-:::
-
-::: {#fig-roc-sfree}
 ```{r roc_scale_free , message=FALSE, echo = TRUE}
+#| label: fig-roc-sfree
+#| fig-cap: Mean ROC curves for MGLasso and GLasso graph inference in the Scale-free model. We varied the fusion penalty parameter of MGLasso $\lambda_2 \in \{0, 3.33, 10\}$ alongside the ratio $\frac{n}{p}\in \{0.5,1,2\}$. Within each panel, the ROC curve shows the True positive rate (y-axis) vs. the False positive rate (x-axis) for both MGLasso (blue) and GLasso (brown). Since GLasso does not have a fusion penalty, its ROC curves were replicated for panels belonging to the same row. We also plot the random classifier (dotted grey line). The results have been averaged over $50$ simulated datasets and suggest that MGLasso performs no worse than GLasso. For $\lambda_2 = 0$, the MGLasso approach is equivalent to Glasso in its neighborhood selection version.
 #| fig-width: 12
 #| fig-height: 7
 
@@ -832,20 +813,9 @@ ggplot(roc_dtf_sfree, aes(
   )
 ```
 
-Mean ROC curves for MGLasso and GLasso graph inference in the Scale-free model.
-We varied the fusion penalty parameter of MGLasso $\lambda_2 \in \{0, 3.33, 10\}$
-alongside the ratio $\frac{n}{p}\in \{0.5,1,2\}$. Within each panel, the ROC
-curve shows the True positive rate (y-axis) vs. the False positive rate (x-axis)
-for both MGLasso (blue) and GLasso (brown). Since GLasso does not have a fusion
-penalty, its ROC curves were replicated for panels belonging to the same row. We
-also plot the random classifier (dotted grey line). The results have been
-averaged over $50$ simulated datasets and suggest that MGLasso performs no worse
-than GLasso. For $\lambda_2 = 0$, the MGLasso approach is equivalent to Glasso
-in its neighborhood selection version.
-:::
-
-::: {#fig-roc-sbm}
 ```{r roc_sbm , message=FALSE, echo = TRUE}
+#| label: fig-roc-sbm
+#| fig-cap: Mean ROC curves for MGLasso and GLasso graph inference in the stochastic block model. We varied the fusion penalty parameter of MGLasso $\lambda_2 \in \{0, 3.33, 10\}$ alongside the ratio $\frac{n}{p}\in \{0.5,1,2\}$. Within each panel, the ROC curve shows the True positive rate (y-axis) vs. the False positive rate (x-axis) for both MGLasso (blue) and GLasso (brown). Since GLasso does not have a fusion penalty, its ROC curves were replicated for panels belonging to the same row. We also plot the random classifier (dotted grey line). The results have been averaged over $50$ simulated datasets and suggest that MGLasso performs no worse than GLasso. For $\lambda_2 = 0$, the MGLasso approach is equivalent to Glasso in its neighborhood selection version.
 #| fig-width: 12
 #| fig-height: 7
 
@@ -881,18 +851,6 @@ ggplot(roc_dtf_sbm, aes(
   )
 ```
 
-Mean ROC curves for MGLasso and GLasso graph inference in the stochastic block
-model. We varied the fusion penalty parameter of MGLasso $\lambda_2 \in \{0, 3.33,
-10\}$ alongside the ratio $\frac{n}{p}\in \{0.5,1,2\}$. Within each panel, the
-ROC curve shows the True positive rate (y-axis) vs. the False positive rate
-(x-axis) for both MGLasso (blue) and GLasso (brown). Since GLasso does not have
-a fusion penalty, its ROC curves were replicated for panels belonging to the same
-row. We also plot the random classifier (dotted grey line). The results have
-been averaged over $50$ simulated datasets and suggest that MGLasso performs no
-worse than GLasso. For $\lambda_2 = 0$, the MGLasso approach is equivalent to
-Glasso in its neighborhood selection version.
-:::
-
 Based on these empirical results, we first observe that, in all the considered
 simulation models, MGLasso improves over GLasso in terms of support recovery in
 the high-dimensional setting where $p<n$. In addition, in the absence of
@@ -922,10 +880,11 @@ estimated a stability-like parameter in a sample of graphs simulated via the
 stochastic block model. This estimation of edge variability was then used as the
 threshold for the StARS method. The parameter $\lambda_2$ has been varied. 
 
-::: {#fig-ari-low-cor}
 ```{r echo = TRUE}
 #| fig-width: 12
 #| fig-height: 5
+#| label: fig-ari-low-cor
+#| fig-cap: Boxplots of Adjusted Rand Indices for the stochastic block model with $5$ classes and $p=40$ variables for a correlation level $\rho=0.1$. The number of estimated clusters $\{5,10,15,20\}$ vary alongside the ratio $\frac{n}{p}\in \{0.5,1,2\}$. Within each panel, the boxplots of ARI between true partition (with $5$ classes) and estimated clustering partitions on $100$ simulated datasets for $k$-means (blue), hierarchical agglomerative clustering (yellow), and MGLasso (brown) methods are plotted against the ratio $\frac{n}{p}.$  The cluster assignments of MGLasso are computed from a distance between estimated regression vectors for a given value of $\lambda_2.$ Missing boxplots for MGLasso thus mean computed partitions in the grid of values of $\lambda_2$ do not yield the fixed number of clusters. The higher the ARI values, the better the estimated clustering partition is.
 
 load("./data/rand_dt_lower_cor_sbm.RData")
 plot_res(
@@ -938,22 +897,10 @@ plot_res(
 )
 ```
 
-Boxplots of Adjusted Rand Indices for the stochastic block model with $5$
-classes and $p=40$ variables for a correlation level $\rho=0.1$. The number of
-estimated clusters $\{5,10,15,20\}$ vary alongside the ratio $\frac{n}{p}\in
-\{0.5,1,2\}$. Within each panel, the boxplots of ARI between true partition
-(with $5$ classes) and estimated clustering partitions on $100$ simulated
-datasets for $k$-means (blue), hierarchical agglomerative clustering (yellow),
-and MGLasso (brown) methods are plotted against the ratio $\frac{n}{p}.$  The
-cluster assignments of MGLasso are computed from a distance between estimated
-regression vectors for a given value of $\lambda_2.$ Missing boxplots for
-MGLasso thus mean computed partitions in the grid of values of $\lambda_2$ do
-not yield the fixed number of clusters. The higher the ARI values, the better
-the estimated clustering partition is.
-:::
 
-::: {#fig-ari-high-cor}
 ```{r echo = TRUE}
+#| label: fig-ari-high-cor
+#| fig-cap: Boxplots of Adjusted Rand Indices for the stochastic block model with $5$ classes and $p=40$ variables for a correlation level $\rho=0.3$. The number of estimated clusters $\{5,10,15,20\}$ vary alongside the ratio $\frac{n}{p}\in \{0.5,1,2\}$. Within each panel, the boxplots of ARI between true partition (with $5$ classes) and estimated clustering partitions on $100$ simulated datasets for $k$-means (blue), hierarchical agglomerative clustering (yellow), and MGLasso (brown) methods are plotted against the ratio $\frac{n}{p}.$  The cluster assignments of MGLasso are computed from a distance between estimated regression vectors for a given value of $\lambda_2.$ The higher the ARI values, the better the estimated clustering partition is.
 #| fig-width: 12
 #| fig-height: 5
 
@@ -967,18 +914,6 @@ plot_res(
   main = ""
 )
 ```
-
-Boxplots of Adjusted Rand Indices for the stochastic block model with $5$
-classes and $p=40$ variables for a correlation level $\rho=0.3$. The number of
-estimated clusters $\{5,10,15,20\}$ vary alongside the ratio $\frac{n}{p}\in
-\{0.5,1,2\}$. Within each panel, the boxplots of ARI between true partition
-(with $5$ classes) and estimated clustering partitions on $100$ simulated
-datasets for $k$-means (blue), hierarchical agglomerative clustering (yellow),
-and MGLasso (brown) methods are plotted against the ratio $\frac{n}{p}.$  The
-cluster assignments of MGLasso are computed from a distance between estimated
-regression vectors for a given value of $\lambda_2.$ The higher the ARI values, the better
-the estimated clustering partition is.
-:::
 
 The expected empirical evidence that MGLasso would work reasonably well for strongly correlated variables is somehow highlighted in @fig-ari-low-cor and @fig-ari-high-cor. The performances of MGLasso slightly improve when going from @fig-ari-low-cor to @fig-ari-high-cor, which corresponds to correlation levels of 0.1 and 0.3 between variables belonging to the same block, respectively. We observe the same trend for the HAC and the k-means. Compared to these two approaches, the MGLasso presents the lowest values of adjusted Rand indices, thus suggesting a lower quality of clustering. It should be noted that the performance of MGLasso can be sensitive to the selection of the Lasso penalty parameter and the threshold fixed to determine clusters' fusion. In practice, this fusion threshold is varied in a grid of values close to zero and lower than $10^{-3}$. The value leading to the maximum number of intermediate clusters in the clustering path is chosen. Using non-trivial weights could also improve the overall performance of MGLasso.
 
@@ -1035,11 +970,12 @@ computed from estimated centroids $\hat{\boldsymbol \beta}$ and projected onto
 two principal components of the original data. The path is not always
 agglomerative, but the clusters' splits observed ensure optimal solutions.
 
-:::{#fig-clusterpath}
-
 ```{r}
 #| message: false
 #| warning: false
+#| label: fig-clusterpath
+#| fig-cap: Clustering path of the MGLasso convex clustering solutions on microbiome data with $127$ OTUs. The predicted data are projected onto the two principal components of the original data, while the fusion penalty varies. As $\lambda_2$ increases, it reaches a value for which all the estimated centroids are equal; thus, the branches of the path converge to a unique point in the center of the graph. OTUs are colored according to their phylum classification. The path displays abrupt merges. The pure cluster on the graph's left side (down) corresponds to the phylum Bacteroidetes.
+
 library(SpiecEasi)
 library(colorspace)
 library(ggrepel)
@@ -1099,14 +1035,6 @@ plot_clusterpath <- function(X, mglasso_res, colnames_ = NULL, max.overlaps, cut
 plot_clusterpath(amgut1.filt, c(mgl_amgut_rev, mgl_amgut_rev_set2, mgl_amgut_rev_set3), max.overlaps = 10, cut_k_vars = 1, colors_ = taxas[,"Rank2"])
 ```
 
-Clustering path of the MGLasso convex clustering solutions on microbiome data
-with $127$ OTUs. The predicted data are projected onto the two
-principal components of the original data, while the fusion penalty varies. As
-$\lambda_2$ increases, it reaches a value for which all the estimated centroids
-are equal; thus, the branches of the path converge to a unique point in the
-center of the graph. OTUs are colored according to their phylum classification. The path displays abrupt merges. The pure cluster on the graph's left side (down) corresponds to the phylum Bacteroidetes.
-:::
-
 The @fig-meta-graphs displays graphs and clusters for different levels of
 granularity: $127$, $63$, $31$, $15$ and $2$ clusters. For computing the
 clusters' assignment of nodes, the fusion threshold has been set to
@@ -1116,15 +1044,18 @@ variable representative of the group. The subfigures show graphs at multiple
 levels of granularity which are built on the meta-variables or representative
 variables.
 
-:::{#fig-meta-graphs}
-```{r message=FALSE}
-#| fig-cap:
+```{r}
+#| warning: false
+#| message: false
+#| label: fig-meta-graphs
+#| fig-cap: Estimated graphs at multiple levels of granularity. The first graph shows a network inferred when $\lambda_2=0$.The number of clusters is equal to the number of OTUs. Increasing the fusion penalty makes it possible to uncover graphs built on the representative variable of each cluster. OTUs are colored according to their phylum taxonomic classifier. The number of clusters is computed from the regression vectors with a fixed fusion threshold.
+#| fig-subcap: 
 #|   - "127 clusters graph" 
 #|   - "Meta-variables graph with 63 clusters"
 #|   - "Meta-variables graph with 31 clusters"
 #|   - "Meta-variables graph with 15 clusters"
 #|   - "Meta-variables graph with 2 clusters"
-
+#| layout-ncol: 2
 library(igraph)
 library(phyloseq)
 
@@ -1241,11 +1172,6 @@ plot_network(
 )
 ```
 
-Estimated graphs at multiple levels of granularity. The first graph shows a network inferred when $\lambda_2 =0$. The number of clusters is equal to the number of OTUs. Increasing the fusion penalty makes it possible to uncover graphs built on the representative variable of each cluster. OTUs are colored according to their phylum taxonomic classifier. The number
-of clusters is computed from the regression vectors with a fixed fusion
-threshold.
-:::
-
 To assess the relevance of the inferred clusters, they are compared to known
 taxonomic ranks (phylum, class, order, family, genera, or species). The phylum
 classification is used. For example, for a clustering partition in $2$ groups,
@@ -1313,8 +1239,6 @@ forest trees can be studied via  -->
 ![Black poplar (C. Fischer Wikimedia)](./figures/peuplier-noir-Christian-Fischer.jpeg)
 
 ![Map of genotypes](./figures/carte-genotypes.png)
-
-Black poplar and sampling areas.
 :::
 
 The collected DNA methylation and expression data are counts data. Details on
@@ -1339,10 +1263,11 @@ threshold $0.05$. In the resulting clustering path (see
 which are samples corresponding to gene expression genotypes, gene-body
 methylation samples, and gene promoter samples.
 
-:::{#fig-clusterpath-poplar}
 ```{r}
 #| fig-width: 10
 #| fig-height: 7
+#| label: fig-clusterpath-poplar
+#| fig-cap: "Clustering path of solutions on DNA methylation and transcriptomic samples. The figure shows $3$ distinct clusters which correspond to omics data of different natures: transcriptomic (right), methylation on the promoter (bottom), and methylation on gene-body (top left)."
 #| warning: false
 
 mglasso_genot <-
@@ -1426,12 +1351,6 @@ plot_clusterpath <- function(X, mglasso_res, colnames_ = NULL, max.overlaps, cut
 plot_clusterpath(as.matrix(epit_sparse), mglasso_genot, cut_names, max.overlaps = 20, cut_k_vars = 1, colors_ = col_leaves)
 ```
 
-Clustering path of solutions on DNA methylation and transcriptomic samples. The
-figure shows $3$ distinct clusters which correspond to omics data of different
-natures: transcriptomic (right), methylation on the promoter (bottom), and
-methylation on gene-body (top left).
-:::
-
 The results of the MGLasso can also be represented in the expanded way where
 meta-variables are not computed from clusters. In @fig-graphpath-poplar, a focus
 is put on the effect of the fusion penalty. Clusters partitions are not
@@ -1439,9 +1358,10 @@ presented. The higher the fusion penalty, variables are encouraged to share the
 same neighborhood structure. Note that an equivalent graph over meta-variables
 can be computed after choosing a fusion threshold as in @fig-meta-graphs.
 
-:::{#fig-graphpath-poplar}
 ```{r}
-#| fig-cap:
+#| label: fig-graphpath-poplar
+#| fig-cap: Adjacency matrices for different fusion penalty parameters. The first graph shows the inferred network when no fusion penalty is added to the model. In that graph, the first block of size $10 \times 10$ variables corresponds to RNA-Seq samples. The second sparser block of size $30 \times 30$ corresponds to gene-body DNA methylation data in the three methylation contexts. The last sparse block of the same size corresponds to promoter methylation. The edge bands suggest a relationship between DNA methylation measurements that belong to the same context. For example, the Loire methylation sample in the CpG context is likely related to the Loire samples in the CHG and CHH contexts. The graphs also suggest some relationships between expression and methylation for some natural populations. As the merging penalty increases, the blocks corresponding to the three methylation contexts merge first, then follow the upper left block corresponding to the expression data. For $\lambda_2 = 30.94,$ all natural populations merge into a single cluster and complete graph.
+#| fig-subcap:
 #|   - Full graph with $\lambda_2$ = 0
 #|   - Full graph with $\lambda_2$ = 1.63
 #|   - Full graph with $\lambda_2$ = 3.26
@@ -1482,9 +1402,6 @@ Matrix::image(
   ylab = ""
 )
 ```
-
-Adjacency matrices for different fusion penalty parameters. The first graph shows the inferred network when no fusion penalty is added to the model. In that graph, the first block of size $10 \times 10$ variables corresponds to RNA-Seq samples. The second sparser block of size $30 \times 30$ corresponds to gene-body DNA methylation data in the three methylation contexts. The last sparse block of the same size corresponds to promoter methylation. The edge bands suggest a relationship between DNA methylation measurements that belong to the same context. For example, the Loire methylation sample in the CpG context is likely related to the Loire samples in the CHG and CHH contexts. The graphs also suggest some relationships between expression and methylation for some natural populations. As the merging penalty increases, the blocks corresponding to the three methylation contexts merge first, then follow the upper left block corresponding to the expression data. For $\lambda_2 = 30.94,$ all natural populations merge into a single cluster and complete graph.
-:::
 
 # Conclusion
 
