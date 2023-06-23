@@ -61,8 +61,6 @@ published: true
 format:
   computo-html: default
   computo-pdf: default
-execute:
-  echo: false
 ---
 
 # Introduction 
