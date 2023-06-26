@@ -1417,7 +1417,7 @@ extended to non-Gaussian distributions belonging to the exponential family and
 mixed graphical models. 
 
 # Appendix {.appendix .unnumbered}  
-The scripts to reproduce the simulations are available at <https://github.com/desanou/multiscale_glasso/tree/main/simulation-experiments>.
+The scripts to reproduce the simulations are available at <https://github.com/computorg/published-202306-sanou-multiscale_glasso/tree/main/simulation-experiments>.
 
 # Acknowledgments {.appendix .unnumbered}  
 The authors would like to thank the Editors and referees for comments that led to substantial improvements in the manuscript.
