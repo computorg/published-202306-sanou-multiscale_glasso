@@ -738,8 +738,8 @@ and @fig-roc-sbm by varying $\frac{n}{p}\in \{0.5,1,2\}$.
 ```{r roc_erdos, message=FALSE, echo = TRUE}
 #| label: fig-roc-erdos
 #| fig-cap: Mean ROC curves for MGLasso and GLasso graph inference in the Erdös-Renyi model. We varied the fusion penalty parameter of MGLasso $\lambda_2 \in \{0, 3.33, 10\}$ alongside the ratio $\frac{n}{p}\in \{0.5,1,2\}$. Within each panel, the ROC curve shows the True positive rate (y-axis) vs. the False positive rate (x-axis) for both MGLasso (blue) and GLasso (brown). Since GLasso does not have a fusion penalty, its ROC curves were replicated for panels belonging to the same row. We also plot the random classifier (dotted grey line). The results have been averaged over $50$ simulated datasets and suggest that MGLasso performs no worse than GLasso. For $\lambda_2 = 0$, the MGLasso approach is equivalent to GLasso in its neighborhood selection version.
-#| fig-width: 12
-#| fig-height: 7
+#| fig-width: 14
+#| fig-height: 10
 
 library(ggplot2)
 library(ghibli)
@@ -779,8 +779,8 @@ ggplot(roc_dtf_erdos, aes(
 ```{r roc_scale_free , message=FALSE, echo = TRUE}
 #| label: fig-roc-sfree
 #| fig-cap: Mean ROC curves for MGLasso and GLasso graph inference in the Scale-free model. We varied the fusion penalty parameter of MGLasso $\lambda_2 \in \{0, 3.33, 10\}$ alongside the ratio $\frac{n}{p}\in \{0.5,1,2\}$. Within each panel, the ROC curve shows the True positive rate (y-axis) vs. the False positive rate (x-axis) for both MGLasso (blue) and GLasso (brown). Since GLasso does not have a fusion penalty, its ROC curves were replicated for panels belonging to the same row. We also plot the random classifier (dotted grey line). The results have been averaged over $50$ simulated datasets and suggest that MGLasso performs no worse than GLasso. For $\lambda_2 = 0$, the MGLasso approach is equivalent to Glasso in its neighborhood selection version.
-#| fig-width: 12
-#| fig-height: 7
+#| fig-width: 14
+#| fig-height: 10
 
 load("./data/roc_dtf_sfree.RData")
 np.labs <- c("frac(n, p) == 0.5", "frac(n, p) == 1", "frac(n, p) == 2")
@@ -818,8 +818,8 @@ ggplot(roc_dtf_sfree, aes(
 ```{r roc_sbm , message=FALSE, echo = TRUE}
 #| label: fig-roc-sbm
 #| fig-cap: Mean ROC curves for MGLasso and GLasso graph inference in the stochastic block model. We varied the fusion penalty parameter of MGLasso $\lambda_2 \in \{0, 3.33, 10\}$ alongside the ratio $\frac{n}{p}\in \{0.5,1,2\}$. Within each panel, the ROC curve shows the True positive rate (y-axis) vs. the False positive rate (x-axis) for both MGLasso (blue) and GLasso (brown). Since GLasso does not have a fusion penalty, its ROC curves were replicated for panels belonging to the same row. We also plot the random classifier (dotted grey line). The results have been averaged over $50$ simulated datasets and suggest that MGLasso performs no worse than GLasso. For $\lambda_2 = 0$, the MGLasso approach is equivalent to Glasso in its neighborhood selection version.
-#| fig-width: 12
-#| fig-height: 7
+#| fig-width: 14
+#| fig-height: 10
 
 load("./data/roc_dtf_sbm.RData")
 np.labs <- c("frac(n, p) == 0.5", "frac(n, p) == 1", "frac(n, p) == 2")
