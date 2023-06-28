@@ -772,7 +772,8 @@ ggplot(roc_dtf_erdos, aes(
     name = "Method",
     labels = c("GLasso", "MGLasso"),
     values = ghibli::ghibli_palette("MarnieMedium1")[5:6]
-  )
+  ) +
+  theme(text = element_text(size = 14))
 ```
 
 ```{r roc_scale_free , message=FALSE, echo = TRUE}
@@ -810,7 +811,8 @@ ggplot(roc_dtf_sfree, aes(
     name = "Method",
     labels = c("GLasso", "MGLasso"),
     values = ghibli_palette("MarnieMedium1")[5:6]
-  )
+  ) +
+  theme(text = element_text(size = 14))
 ```
 
 ```{r roc_sbm , message=FALSE, echo = TRUE}
@@ -848,7 +850,8 @@ ggplot(roc_dtf_sbm, aes(
     name = "Method",
     labels = c("GLasso", "MGLasso"),
     values = ghibli_palette("MarnieMedium1")[5:6]
-  )
+  ) +
+  theme(text = element_text(size = 14))
 ```
 
 Based on these empirical results, we first observe that, in all the considered
@@ -894,7 +897,8 @@ plot_res(
   cor_ = 0.25,
   np_ = c(0.5, 1, 2),
   main = ""
-)
+) +
+  theme(text = element_text(size = 14))
 ```
 
 
@@ -912,7 +916,8 @@ plot_res(
   cor_ = 0.95,
   np_ = c(0.5, 1, 2),
   main = ""
-)
+) +
+  theme(text = element_text(size = 14))
 ```
 
 The expected empirical evidence that MGLasso would work reasonably well for strongly correlated variables is somehow highlighted in @fig-ari-low-cor and @fig-ari-high-cor. The performances of MGLasso slightly improve when going from @fig-ari-low-cor to @fig-ari-high-cor, which corresponds to correlation levels of 0.1 and 0.3 between variables belonging to the same block, respectively. We observe the same trend for the HAC and the k-means. Compared to these two approaches, the MGLasso presents the lowest values of adjusted Rand indices, thus suggesting a lower quality of clustering. It should be noted that the performance of MGLasso can be sensitive to the selection of the Lasso penalty parameter and the threshold fixed to determine clusters' fusion. In practice, this fusion threshold is varied in a grid of values close to zero and lower than $10^{-3}$. The value leading to the maximum number of intermediate clusters in the clustering path is chosen. Using non-trivial weights could also improve the overall performance of MGLasso.
