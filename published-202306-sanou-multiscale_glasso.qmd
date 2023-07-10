@@ -425,8 +425,16 @@ the Lipschitz constant of $\nabla(g + \lambda_2 s_{\mu}),$ $k$ is the iteration
 counter for the inner FISTA updates and $i$ is the iteration counter for CONESTA
 updates.
 
-::: {#conesta}
 ```pseudocode
+#| label: alg-conesta
+#| html-indent-size: "1.2em"
+#| html-comment-delimiter: "//"
+#| html-line-number: true
+#| html-line-number-punc: ":"
+#| html-no-end: false
+#| pdf-placement: "htb!"
+#| pdf-line-number: true
+
 \begin{algorithm}
 \caption{CONESTA solver}
 \begin{algorithmic}
@@ -465,7 +473,6 @@ updates.
 \end{algorithmic}
 \end{algorithm}
 ```
-:::
 
 ## Reformulation of MGLasso for CONESTA algorithm {#reformulation-of-mglasso-for-conesta-algorithm}
 
@@ -499,8 +506,16 @@ for merging clusters.
 We note here that problem in @eq-refpbm is of the same form as the optimization problem solved in the paper by @hadjselem2018: as they showed, CONESTA outperforms other optimization approaches such as the alternating direction method of multipliers [ADMM, @Boyd2011], the excessive gap method [EGM, @nesterov2005excessive], the classical FISTA with fixed smoothing and the inexact FISTA [@schmidt2011convergence]. Rather than repeating their experiments, we refer the reader to Section IV of their paper.
 </revision>
 
-::: {#algo-mglasso}
 ```pseudocode
+#| label: alg-mglasso
+#| html-indent-size: "1.2em"
+#| html-comment-delimiter: "//"
+#| html-line-number: true
+#| html-line-number-punc: ":"
+#| html-no-end: false
+#| pdf-placement: "htb!"
+#| pdf-line-number: true
+
 \begin{algorithm}
 \caption{MGLasso algorithm}
 \begin{algorithmic}
@@ -535,7 +550,6 @@ We note here that problem in @eq-refpbm is of the same form as the optimization 
 \end{algorithmic}
 \end{algorithm}
 ```
-:::
 
 ## Model selection {#model-selection}
 
