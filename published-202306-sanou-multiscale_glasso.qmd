@@ -59,7 +59,9 @@ repo: "published-202306-sanou-multiscale_glasso"
 draft: false
 published: true
 format:
-  computo-html: default
+  computo-html:
+    fig-width: 8
+    fig-height: 6
   computo-pdf: default
 execute:
   freeze: auto  # re-render only when source changes
@@ -738,8 +740,6 @@ and @fig-roc-sbm by varying $\frac{n}{p}\in \{0.5,1,2\}$.
 ```{r roc_erdos, message=FALSE, echo = TRUE}
 #| label: fig-roc-erdos
 #| fig-cap: Mean ROC curves for MGLasso and GLasso graph inference in the Erdös-Renyi model. We varied the fusion penalty parameter of MGLasso $\lambda_2 \in \{0, 3.33, 10\}$ alongside the ratio $\frac{n}{p}\in \{0.5,1,2\}$. Within each panel, the ROC curve shows the True positive rate (y-axis) vs. the False positive rate (x-axis) for both MGLasso (blue) and GLasso (brown). Since GLasso does not have a fusion penalty, its ROC curves were replicated for panels belonging to the same row. We also plot the random classifier (dotted grey line). The results have been averaged over $50$ simulated datasets and suggest that MGLasso performs no worse than GLasso. For $\lambda_2 = 0$, the MGLasso approach is equivalent to GLasso in its neighborhood selection version.
-#| fig-width: 8
-#| fig-height: 6
 
 library(ggplot2)
 library(ghibli)
@@ -778,8 +778,6 @@ ggplot(roc_dtf_erdos, aes(
 ```{r roc_scale_free , message=FALSE, echo = TRUE}
 #| label: fig-roc-sfree
 #| fig-cap: Mean ROC curves for MGLasso and GLasso graph inference in the Scale-free model. We varied the fusion penalty parameter of MGLasso $\lambda_2 \in \{0, 3.33, 10\}$ alongside the ratio $\frac{n}{p}\in \{0.5,1,2\}$. Within each panel, the ROC curve shows the True positive rate (y-axis) vs. the False positive rate (x-axis) for both MGLasso (blue) and GLasso (brown). Since GLasso does not have a fusion penalty, its ROC curves were replicated for panels belonging to the same row. We also plot the random classifier (dotted grey line). The results have been averaged over $50$ simulated datasets and suggest that MGLasso performs no worse than GLasso. For $\lambda_2 = 0$, the MGLasso approach is equivalent to Glasso in its neighborhood selection version.
-#| fig-width: 8
-#| fig-height: 6
 
 load("./data/roc_dtf_sfree.RData")
 np.labs <- c("frac(n, p) == 0.5", "frac(n, p) == 1", "frac(n, p) == 2")
@@ -816,8 +814,6 @@ ggplot(roc_dtf_sfree, aes(
 ```{r roc_sbm , message=FALSE, echo = TRUE}
 #| label: fig-roc-sbm
 #| fig-cap: Mean ROC curves for MGLasso and GLasso graph inference in the stochastic block model. We varied the fusion penalty parameter of MGLasso $\lambda_2 \in \{0, 3.33, 10\}$ alongside the ratio $\frac{n}{p}\in \{0.5,1,2\}$. Within each panel, the ROC curve shows the True positive rate (y-axis) vs. the False positive rate (x-axis) for both MGLasso (blue) and GLasso (brown). Since GLasso does not have a fusion penalty, its ROC curves were replicated for panels belonging to the same row. We also plot the random classifier (dotted grey line). The results have been averaged over $50$ simulated datasets and suggest that MGLasso performs no worse than GLasso. For $\lambda_2 = 0$, the MGLasso approach is equivalent to Glasso in its neighborhood selection version.
-#| fig-width: 8
-#| fig-height: 6
 
 load("./data/roc_dtf_sbm.RData")
 np.labs <- c("frac(n, p) == 0.5", "frac(n, p) == 1", "frac(n, p) == 2")
@@ -881,8 +877,7 @@ stochastic block model. This estimation of edge variability was then used as the
 threshold for the StARS method. The parameter $\lambda_2$ has been varied. 
 
 ```{r echo = TRUE}
-#| fig-width: 12
-#| fig-height: 5
+#| fig-height: 4
 #| label: fig-ari-low-cor
 #| fig-cap: Boxplots of Adjusted Rand Indices for the stochastic block model with $5$ classes and $p=40$ variables for a correlation level $\rho=0.1$. The number of estimated clusters $\{5,10,15,20\}$ vary alongside the ratio $\frac{n}{p}\in \{0.5,1,2\}$. Within each panel, the boxplots of ARI between true partition (with $5$ classes) and estimated clustering partitions on $100$ simulated datasets for $k$-means (blue), hierarchical agglomerative clustering (yellow), and MGLasso (brown) methods are plotted against the ratio $\frac{n}{p}.$  The cluster assignments of MGLasso are computed from a distance between estimated regression vectors for a given value of $\lambda_2.$ Missing boxplots for MGLasso thus mean computed partitions in the grid of values of $\lambda_2$ do not yield the fixed number of clusters. The higher the ARI values, the better the estimated clustering partition is.
 
@@ -899,10 +894,9 @@ plot_res(
 
 
 ```{r echo = TRUE}
+#| fig-height: 4
 #| label: fig-ari-high-cor
 #| fig-cap: Boxplots of Adjusted Rand Indices for the stochastic block model with $5$ classes and $p=40$ variables for a correlation level $\rho=0.3$. The number of estimated clusters $\{5,10,15,20\}$ vary alongside the ratio $\frac{n}{p}\in \{0.5,1,2\}$. Within each panel, the boxplots of ARI between true partition (with $5$ classes) and estimated clustering partitions on $100$ simulated datasets for $k$-means (blue), hierarchical agglomerative clustering (yellow), and MGLasso (brown) methods are plotted against the ratio $\frac{n}{p}.$  The cluster assignments of MGLasso are computed from a distance between estimated regression vectors for a given value of $\lambda_2.$ The higher the ARI values, the better the estimated clustering partition is.
-#| fig-width: 12
-#| fig-height: 5
 
 load("./data/rand_dt_higher_cor_sbm.RData")
 plot_res(
@@ -1264,8 +1258,6 @@ which are samples corresponding to gene expression genotypes, gene-body
 methylation samples, and gene promoter samples.
 
 ```{r}
-#| fig-width: 10
-#| fig-height: 7
 #| label: fig-clusterpath-poplar
 #| fig-cap: "Clustering path of solutions on DNA methylation and transcriptomic samples. The figure shows $3$ distinct clusters which correspond to omics data of different natures: transcriptomic (right), methylation on the promoter (bottom), and methylation on gene-body (top left)."
 #| warning: false
