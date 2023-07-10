@@ -21,7 +21,7 @@ author:
     affiliations:
       - name: Université Paris-Saclay, CNRS, Univ Evry, Laboratoire de Mathématiques et Modélisation d'Evry
         url: http://www.math-evry.cnrs.fr/
-date: last-modified
+date: June 28, 2023
 date-modified: last-modified
 abstract: >+
   Gaussian Graphical Models (GGMs) are widely used in high-dimensional data 
@@ -1423,7 +1423,8 @@ extended to non-Gaussian distributions belonging to the exponential family and
 mixed graphical models. 
 
 # Appendix {.appendix .unnumbered}  
-The scripts to reproduce the simulations are available at <https://github.com/computorg/published-202306-sanou-multiscale_glasso/tree/main/simulation-experiments>.
+
+The scripts to reproduce the simulations are available at <https://github.com/computorg/published-202306-sanou-multiscale_glasso/tree/main/scripts/simulation-experiments>.
 
 # Acknowledgments {.appendix .unnumbered}  
 The authors would like to thank the Editors and referees for comments that led to substantial improvements in the manuscript.
