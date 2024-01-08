@@ -21,7 +21,7 @@ author:
     affiliations:
       - name: Université Paris-Saclay, CNRS, Univ Evry, Laboratoire de Mathématiques et Modélisation d'Evry
         url: http://www.math-evry.cnrs.fr/
-date: June 28, 2023
+date: 06/28/2023
 date-modified: last-modified
 abstract: >+
   Gaussian Graphical Models (GGMs) are widely used in high-dimensional data 
@@ -53,6 +53,7 @@ citation:
   url: https://computo.sfds.asso.fr/published-202306-sanou-multiscale_glasso
   publisher: "Société Française de Statistique"
   issn: "2824-7795"
+google-scholar: true
 bibliography: references.bib
 github-user: computorg
 repo: "published-202306-sanou-multiscale_glasso"
