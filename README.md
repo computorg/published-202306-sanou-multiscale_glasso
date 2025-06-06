@@ -1,14 +1,14 @@
 
 # Inference of Multiscale Gaussian Graphical Models
 
-by 
+[![build and publish](https://github.com/computorg/published-202306-sanou-multiscale_glasso/actions/workflows/build.yml/badge.svg)](https://github.com/computorg/published-202306-sanou-multiscale_glasso/actions/workflows/build.yml)
+
+Authors:
 
 - Edmond Sanou (Université Paris-Saclay, CNRS, Univ Evry, Laboratoire de Mathématiques et Modélisation d'Evry)
 - Christophe Ambroise (Université Paris-Saclay, CNRS, Univ Evry, Laboratoire de Mathématiques et Modélisation d'Evry)
 - Geneviève Robin (Université Paris-Saclay, CNRS, Univ Evry, Laboratoire de Mathématiques et Modélisation d'Evry)
 
-[![build status](https://github.com/computorg/published-202306-sanou-multiscale_glasso/workflows/build/badge.svg)](https://github.com/computorg/published-202306-sanou-multiscale_glasso/)
-[![](https://img.shields.io/github/last-commit/computorg/published-202306-sanou-multiscale_glasso.svg)](https://github.com/computorg/published-202306-sanou-multiscale_glasso/commits/main)
 [![DOI:10.57750/1f4p-7955](https://img.shields.io/badge/DOI-10.57750/1f4p-7955.svg)](https://doi.org/10.57750/1f4p-7955)
 [![HTML](https://img.shields.io/badge/article-HTML-034E79)](https://computo.sfds.asso.fr/published-202306-sanou-multiscale_glasso/)
 [![PDF](https://img.shields.io/badge/article-PDF-034E79)](https://computo.sfds.asso.fr/published-202306-sanou-multiscale_glasso/published-202306-sanou-multiscale_glasso.pdf)
