@@ -1,48 +1,20 @@
-# History files
-.Rhistory
-.Rapp.history
-# Session Data files
-.RData
-# User-specific files
-.Ruserdata
-# Example code in package build process
-*-Ex.R
-# Output files from R CMD build
-/*.tar.gz
-# Output files from R CMD check
-/*.Rcheck/
-# RStudio files
-.Rproj.user/
-# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
-.httr-oauth
-# knitr and R markdown default cache directories
-*_cache/
-/cache/
-*_files/
-#*.html
-# Temporary files created by R markdown
-*.utf8.md
-*.knit.md
-# R Environment Variables
-.Renviron
-##
-*.DS_Store
 /.quarto/
-/.idea/
-temp-test-scripts.R
-content.qmd
-*.html
-*.log
-*.swp
-*.tex
-*.aux
+DS_Store
+.Rhistory
+/.luarc.json
+/.quarto/
+/*_files
+/*_cache
+/_freeze
 _extensions/
-published-202306-sanou-mglasso.pdf
-published-202306-sanou-mglasso.html
-includes/
-*.gitattributes
-*.Rproj
 .Rprofile
-
-
+.Rproj.user
+.RData
+.Rhistory
+.Ruserdata
+_extensions
+renv/
+*.swp
+published-202306-sanou-multiscale_glasso.pdf
+published-202306-sanou-multiscale_glasso.html
 /.luarc.json
