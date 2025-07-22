@@ -52,8 +52,6 @@ citation:
   doi: "10.57750/1f4p-7955"
   publisher: "French Statistical Society"
   issn: "2824-7795"
-  pdf-url: "https://computo.sfds.asso.fr/published-202306-sanou-multiscale_glasso/published-202306-sanou-multiscale_glasso.pdf"
-  url: "https://computo.sfds.asso.fr/published-202306-sanou-multiscale_glasso/"
 google-scholar: true
 bibliography: references.bib
 github-user: computorg
