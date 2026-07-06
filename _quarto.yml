@@ -1,6 +1,7 @@
 project:
   render:
-    - published-202306-sanou-multiscale_glasso.qmd
+    - main.qmd
+    - README.qmd
 
 title: "Inference of Multiscale Gaussian Graphical Models"
 subtitle: ""
@@ -59,8 +60,7 @@ google-scholar: true
 bibliography: references.bib
 github-user: computorg
 repo: "published-202306-sanou-multiscale_glasso"
-draft: false
-published: true
+status: published
 format:
   computo-html:
     fig-width: 8
