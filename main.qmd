@@ -358,7 +358,7 @@ counter for the inner FISTA updates and $i$ is the iteration counter for CONESTA
 updates.
 
 ```pseudocode
-#| label: alg-conesta
+#| label: algo-conesta
 #| html-indent-size: "1.2em"
 #| html-comment-delimiter: "//"
 #| html-line-number: true
@@ -439,7 +439,7 @@ We note here that problem in @eq-refpbm is of the same form as the optimization 
 </revision>
 
 ```pseudocode
-#| label: alg-mglasso
+#| label: algo-mglasso
 #| html-indent-size: "1.2em"
 #| html-comment-delimiter: "//"
 #| html-line-number: true
