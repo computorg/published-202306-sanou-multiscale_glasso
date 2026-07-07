@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+message: If you use or cite this article, please use the metadata provided in 'preferred-citation'.
+title: Inference of Multiscale Gaussian Graphical Models
+authors:
+- family-names: Sanou
+  given-names: Edmond
+  orcid: https://orcid.org/0000-0002-9827-299X
+  affiliation: Université Paris-Saclay, CNRS, Univ Evry, Laboratoire de Mathématiques
+    et Modélisation d'Evry
+- family-names: Ambroise
+  given-names: Christophe
+  orcid: https://orcid.org/0000-0002-8148-0346
+  affiliation: Université Paris-Saclay, CNRS, Univ Evry, Laboratoire de Mathématiques
+    et Modélisation d'Evry
+- family-names: Robin
+  given-names: Geneviève
+  affiliation: Université Paris-Saclay, CNRS, Univ Evry, Laboratoire de Mathématiques
+    et Modélisation d'Evry
+url: https://computo-journal.org/published-202306-sanou-multiscale_glasso/
+preferred-citation:
+  type: article
+  title: Inference of Multiscale Gaussian Graphical Models
+  authors:
+  - family-names: Sanou
+    given-names: Edmond
+    orcid: https://orcid.org/0000-0002-9827-299X
+    affiliation: Université Paris-Saclay, CNRS, Univ Evry, Laboratoire de Mathématiques
+      et Modélisation d'Evry
+  - family-names: Ambroise
+    given-names: Christophe
+    orcid: https://orcid.org/0000-0002-8148-0346
+    affiliation: Université Paris-Saclay, CNRS, Univ Evry, Laboratoire de Mathématiques
+      et Modélisation d'Evry
+  - family-names: Robin
+    given-names: Geneviève
+    affiliation: Université Paris-Saclay, CNRS, Univ Evry, Laboratoire de Mathématiques
+      et Modélisation d'Evry
+  journal: Computo
+  issn: 2824-7795
+  url: https://computo-journal.org/published-202306-sanou-multiscale_glasso/
+  publisher:
+    name: French Statistical Society
+  doi: 10.57750/1f4p-7955
+  year: 2023
+doi: 10.57750/1f4p-7955
+date-released: '2023-06-01'
